@@ -1,8 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from gallery.models import Pictures
 
+from django.contrib import messages
+
 def index(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'You must be logged in to view this page')
+        return redirect('login')
+    
     pictures = Pictures.objects.order_by("published_at").filter(published=True)
     return render(request, 'gallery/index.html', {"cards": pictures})
 
@@ -11,6 +17,10 @@ def image(request, picture_id):
     return render(request, 'gallery/image.html', {"picture": picture})
 
 def search(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'You must be logged in to search for images')
+        return redirect('login')
+    
     pictures = Pictures.objects.order_by("published_at").filter(published=True)
     if "search" in request.GET:
         keyword = request.GET["search"]
