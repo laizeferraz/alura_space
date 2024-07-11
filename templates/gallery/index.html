@@ -20,7 +20,7 @@
       <h2 class="cards__titulo">Navigate through the gallery</h2>
       <ul class="cards__lista">
         {% for picture in cards %}
-        <li class="card">
+        <li class="image__card">
           <a href="{% url 'image' picture.id %}">
             {% if picture.image == "" or picture.image == null %}
             <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto">
