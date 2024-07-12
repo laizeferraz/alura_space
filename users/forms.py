@@ -27,6 +27,25 @@ class UserRegisterForm(forms.Form):
       required=True
     )
 
+    def clean_username(self):
+      username = self.cleaned_data.get('username')
+      if username:
+          username = username.strip()
+          if " " in username:
+              raise forms.ValidationError('Username cannot contain spaces')
+          else:
+              return username
+    
+    def clean_password2(self):
+      password = self.cleaned_data.get('password')
+      password2 = self.cleaned_data.get('password2')
+
+      if password and password2:
+          if password != password2:
+              raise forms.ValidationError('Passwords do not match')
+          else:
+              return password2
+
 class UserLoginForm(forms.Form):
     username = forms.CharField(
         label='Username', 
