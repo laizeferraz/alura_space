@@ -33,9 +33,6 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-          if form["password"].value() != form["password2"].value():
-              messages.error(request, 'Passwords do not match')
-              return redirect('register')
           username=form["username"].value()
           email=form["email"].value()
           password=form["password"].value()
