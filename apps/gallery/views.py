@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-from gallery.models import Pictures
+from apps.gallery.models import Pictures
 
 from django.contrib import messages
 
