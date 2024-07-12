@@ -6,7 +6,7 @@ class PicturesAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'font', 'description', 'image', 'published')
     list_display_links = ('id', 'title')
     search_fields = ('title', 'font', 'description', 'image')
-    list_filter = ('category', 'title')
+    list_filter = ('category', 'title', 'user')
     list_editable = ('published',)
     ordering = ('title', 'font', 'description', 'image')
     list_per_page = 10
