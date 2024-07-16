@@ -9,10 +9,10 @@
   <section class="tags">
     <p class="tags__titulo">Search by tags:</p>
     <ul class="tags__lista">
-      <li class="tags__tag">Nebula</li>
-      <li class="tags__tag">Star</li>
-      <li class="tags__tag">Galaxy</li>
-      <li class="tags__tag">Planet</li>
+      <li class="tags__tag"><a href="{% url 'filter' 'NEBULA' %}" style="color: #C9C9C9; text-decoration: none;">Nebula</a></li>
+      <li class="tags__tag"><a href="{% url 'filter' 'STAR' %}" style="color: #C9C9C9; text-decoration: none;">Star</a></li>
+      <li class="tags__tag"><a href="{% url 'filter' 'GALAXY' %}" style="color: #C9C9C9; text-decoration: none;">Galaxy</a></li>
+      <li class="tags__tag"><a href="{% url 'filter' 'PLANET' %}" style="color: #C9C9C9; text-decoration: none;">Planet</a></li>
     </ul>
   </section>
   <section class="galeria">

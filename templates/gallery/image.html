@@ -15,6 +15,10 @@
           <p class="imagem__descricao">{{picture.font}}</p>
           <p class="imagem__texto">{{picture.description}}</p>
         </div>
+        <div class="imagem__botoes">
+          <a class="imagem__botao" href="{% url 'edit_image' picture.id %}">Edit</a>
+          <a class="imagem__botao" href="{% url 'delete_image' picture.id %}"><button class="btn btn-danger col-12" style="padding: top 5px;" type="submit">Delete</button></a>
+        </div>
       </div>
     </div>
   </section>
